@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+    int main(){
+        int vector1[4], vector2[4], i, i2, final[4];
+        
+    for(i=0; i<4; i++){
+        printf("dame el valor del vector1: \n");
+        scanf("%d",&vector1[i]);
+}
+    for(i2=0; i2<4; i2++){
+        printf("dame el valor del vector2: \n");
+        scanf("%d",&vector2[i2]);
+}
+        i=0, i2=0;
+    while(i<4, i2<4){
+        final[i] = (vector1[i] + vector2[i2]);
+        i++, i2++;
+    }
+    
+    printf("el resultado de los vectores es: %d %d %d %d \n",final[0], final[1], final[2], final[3]);
+
+        return 0;
+    }
