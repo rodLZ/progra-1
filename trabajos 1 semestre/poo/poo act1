@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+class Animal {
+      public:
+Animal(std::string nombre, int edad) {
+this->nombre = nombre;
+this->edad = edad;
+}
+std::string getNombre() {
+return this->nombre;
+}
+int getedad() {
+return this->edad;
+}
+// Herencia
+class felino : public Animal {
+public:
+Estudiante(std::string nombre, int edad, std::string tipo) : Persona(nombre, edad) {
+this->tipo = tipo;
+}
+std::string getTipo() {
+return this->tipo;
+}
+void setCarrera(std::string tipo) {
+this->tipo = tipo;
+}
+}
+int main(){
+Animal perro("oscar", 10);
+std::cout << perro.getNombre() << std::endl;
+std::cout << perro.getedad() << std::endl;
+
+felino gato("michi", 9, "domestico");
+std::cout << gato.getNombre() << std::endl;
+std::cout << gato.getEdad() << std::endl;
+std::cout << gato.getTipo() << std::endl;
+Paco.setCarrera("Ing. En Programacion de Videojuegos");
+return 0;
+}
