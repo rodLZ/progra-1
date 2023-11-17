@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+
+
+
+int main(){
+      std::string contra;
+      
+      do{     //hace que le codigo pase una vez para que se ejequte si el while
+           std::cout<< "dame tu contraseña" << std::endl;
+           std::cin>> contra;
+           if(contra == "q"){   // para que una vez que precionas "q" te saque
+              break;
+           }else{
+           if(contra.size()>8){  //verifica la cantidad de codigo
+               std::cout<< "la contraseña es muy larga"<< std::endl;
+           }else{
+            if(contra.size()<8){ //verifica la cantidad menor de codigo
+                std::cout<< "la contraseña es muy corta"<< std::endl;
+            }else{
+        if(contra != "87654321"){ // si la contra no es se cumple si si es pasa al else 
+        std::cout<< "la contraseña es incorrecta"<< std::endl;
+        } else{    
+        std::cout<< "la contraseña es correcta"<< std::endl;
+        }
+        }
+        }
+        }
+     } while ( contra != "87654321");
+          
+     
+    return 0;
+}
