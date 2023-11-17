@@ -1,0 +1,82 @@
+#include <iostream>
+#include <string>
+
+
+
+int main(){
+    
+    struct usuarios{
+        std::string contra, usuario;
+    };
+    struct usuarios juan;
+    juan.usuario="juan123";
+    juan.contra="juan3312";
+    
+
+           std::cout<< "dame tu usuario" << std::endl;
+           std::string veri;
+           std::cin>> veri;
+           
+    while(veri != juan.usuario) {
+        std::cout << "usuario incorrecto" << std::endl;
+        
+        std::cin >> veri;
+    }
+    
+    if(veri == juan.usuario) {
+        std::cout << "Usuario correcto, porfavor ingresa tu contraseña" << std::endl;
+        
+        std::string vericontra;
+        
+        std::cin >> vericontra;
+        
+        while(vericontra != juan.contra) {
+            std::cout << "contraseña incorrecta" << std::endl;
+            
+            std::cin >> vericontra;
+        }
+        
+        if(vericontra == juan.contra) {
+            std::cout << "contraseña correcta" << std::endl;
+        }
+    }
+}
+
+
+
+
+
+#include<iostream>
+#include<string>
+
+int pedir()
+{
+    int cali;
+    std::cout << "calificacion: ";
+    std::cin >> cali;
+    return cali;
+};
+
+int calcular(int a,int b,int c,int d,int e)
+{
+int promedio = (a+b+c+d+e)/5;
+return promedio;
+};
+
+
+
+int main()
+{
+
+int a = pedir(); 
+int b = pedir();    
+int c = pedir();
+int d = pedir();
+int e = pedir();
+
+int prome = calcular(a, b, c, d, e);
+
+std::cout << "Tu Promedio es: " << prome << std::endl;            
+
+}
+
