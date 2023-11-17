@@ -1,0 +1,149 @@
+#include <iostream>
+#include <string>
+
+
+class Compañeros{
+      public:
+        Compañeros(std::string nombre, int edad, float cal) {
+            this->nombre = nombre;
+            this->edad = edad;
+            this->cal = cal;
+        }
+
+        std::string getNombre() {
+            return this->nombre;
+        }
+
+        int getEdad() {
+            return this->edad;
+        }
+
+        float getCal(){
+            return this->cal;
+        }
+
+        void setNombre(std::string nombre) {
+            this->nombre = nombre;
+        }
+
+        void setEdad(int edad){
+            this->edad = edad;
+        }
+
+        void setCal(float cal){
+            this->cal = cal;
+        }
+         private:
+        std::string nombre;
+        int edad;
+        float cal;
+
+    protected:
+        friend class Amigo;
+        virtual std::string getApodo() {
+            return this->nombre;
+        }
+
+};
+// Herencia vemos que se cuese (padre e hijo de variables)
+class Amigues : public Compañeros {
+    public:
+        Amigues(std::string nombre, int edad,float cal, std::string carrera) : Compañeros(nombre, edad, cal) {
+             this->carrera = carrera;
+        }
+        std::string getCarrera() {
+            return this->carrera;
+        }
+        void setCarrera(std::string carrera) {
+            this->carrera = carrera;
+        }
+    private:
+        std::string carrera;
+
+    friend class Maestro;
+};
+
+//Encapsulamiento ()
+class Amigo {
+    public:
+        std::string getApodo(Compañeros compañeros) {
+            return compañeros.getApodo();
+        }
+};
+//Polimorfismo
+class Chavos{
+        public:
+        void GrupoS() {
+            std::cout << "populares" << std::endl;
+        }
+};
+
+class Banda : public Chavos {
+    public:
+        void GrupoS() {
+            std::cout << "raritos" << std::endl;
+        }
+};
+
+class Buenos : public Chavos {
+    public:
+        void GrupoS() {
+            std::cout << "los buena onda" << std::endl;
+        }
+};
+
+// Sobrecarga de Funciones
+class Operaciones {
+    public:
+        int resta(int a, int b) {
+            return a - b;
+        }
+        int resta(int a, int b, int c) {
+            return a - b - c;
+        }
+        int resta(int a, int b, int c, int d) {
+            return a - b - c - d;
+        }
+        int resta(int a, int b, int c, int d, int e) {
+            return a - b - c - d - e;
+        }
+        int resta(int a, int b, int c, int d, int e, int f) {
+            return a - b - c - d - e - f;
+        }
+};
+
+// int main casi casi termino jajja
+int main(){
+    Compañeros Claudio("Claudio", 19,55);
+    std::cout << Claudio.getNombre() << std::endl;
+    std::cout << Claudio.getEdad() << std::endl;
+
+    Claudio.setNombre("Claudiote");
+    Claudio.setEdad(20);
+    std::cout << Claudio.getNombre() << std::endl;
+    std::cout << Claudio.getEdad() << std::endl;
+
+    Amigues Octa("Octa", 18,68, "Ing. Progra");
+    std::cout << Octa.getNombre() << std::endl;
+    std::cout << Octa.getEdad() << std::endl;
+    std::cout << Octa.getCarrera() << std::endl;
+    Octa.setCarrera("Ing. En Programacion de Videojuegos");
+
+    Amigo Diego;
+    std::cout << Diego.getApodo(Claudio) << std::endl;
+
+    Chavos chavos;
+    chavos.GrupoS();
+    Banda banda;
+    banda.GrupoS();
+    Buenos buenos;
+    buenos.GrupoS();
+
+    Operaciones operaciones;
+    std::cout << operaciones.resta(2,4) << std::endl;
+    std::cout << operaciones.resta(2,4,6) << std::endl;
+    std::cout << operaciones.resta(2,4,6,8) << std::endl;
+    std::cout << operaciones.resta(2,4,6,8,10) << std::endl;
+  return 0;
+}
+
