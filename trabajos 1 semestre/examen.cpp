@@ -3,6 +3,14 @@
 
 class Poliza {
 public:
+    Poliza(){
+        this->nombre = "N/A";
+        this->CURP = "N/A";
+        this->birthday = "N/A";
+        this->dedu = 0;
+        this->monto = 0;
+        this->id = 0;
+    }
     Poliza(std::string nombre, std::string CURP, std::string birthday, int dedu, int monto, int id) {
         this->nombre = nombre;
         this->CURP = CURP;
@@ -151,7 +159,7 @@ private:
     std::string anti;
 };
 
-void imprimirInformacionAfore(const Poliza& poliza) {
+void imprimirInformacionPoliza(const Poliza& poliza) {
     std::cout << "Nombre: " << poliza.getNombre() << std::endl;
     std::cout << "CURP: " << poliza.getCURP() << std::endl;
     std::cout << "Fecha de nacimiento: " << poliza.getBirthday() << std::endl;
@@ -172,15 +180,50 @@ void imprimirInformacionSeguroHouse(const SeguroDeHouse& seguroHouse) {
     std::cout << "Antigüedad: " << seguroHouse.getAnti() << std::endl;
 }
 
+void mostrarMenu() {
+    std::cout << "Menu:";
+    std::cout << "1. Mostrar información de Afore";
+    std::cout << "2. Mostrar información de Seguro de Carro";
+    std::cout << "3. Mostrar información de Seguro de Casa";
+    std::cout << "4. Salir";
+}
+
+void ejecutarPrograma() {
+    int opcion;
+
+    do {
+        mostrarMenu();
+        std::cout << "Ingrese su opción: ";
+        std::cin >> opcion;
+
+        switch (opcion) {
+            case 1: {
+                Poliza poliza("Juan", "ABC123", "20050101", 1000, 5000, 1);
+                imprimirInformacionPoliza(poliza);
+                break;
+            }
+            case 2: {
+                SeguroDeCarro seguroCarro("10000", "Sedan", "ABC123", "Juan", "ABC123", 5000);
+                imprimirInformacionSeguroCarro(seguroCarro);
+                break;
+            }
+            case 3: {
+                SeguroDeHouse seguroHouse("Grande", "Ciudad", "Alarma", "Maria", "XYZ789", 8000);
+                imprimirInformacionSeguroHouse(seguroHouse);
+                break;
+            }
+            case 4:
+                std::cout << "Saliendo del programa.";
+                break;
+            default:
+                std::cout << "Opción no válida. Intente de nuevo.";
+        }
+
+    } while (opcion != 4);
+}
 int main() {
-    Poliza poliza("Juan", "ABC123", "20050101", 1000, 5000, 1);
-    imprimirInformacionAfore(poliza);
-
-    SeguroDeCarro seguroCarro("10000", "Sedan", "ABC123", "Juan", "ABC123", 5000);
-    imprimirInformacionSeguroCarro(seguroCarro);
-
-    SeguroDeHouse seguroHouse("Grande", "Ciudad", "Alarma", "Maria", "XYZ789", 8000);
-    imprimirInformacionSeguroHouse(seguroHouse);
+    ejecutarPrograma();
 
     return 0;
 }
+
